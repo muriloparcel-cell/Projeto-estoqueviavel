@@ -11,13 +11,15 @@
     "url": "git+https://github.com/muriloparcel-cell/Projeto-estoqueviavel.git"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/muriloparcel-cell/Projeto-estoqueviavel/issues"
   },
   "homepage": "https://github.com/muriloparcel-cell/Projeto-estoqueviavel#readme",
   "dependencies": {
-    "express": "^5.3.0"
-  }
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "express-validator": "^7.3.2"
+  },
+  "type": "commonjs"
 }
