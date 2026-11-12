@@ -18,6 +18,7 @@ API desenvolvida em **Node.js** e **Express** para gerenciamento de **Categorias
    ```bash
    npm install
    npm install cors
+   npm install jq curl -y
 Inicie o servidor (porta 2020):
 
 Bash
