@@ -20,7 +20,7 @@ app.use('/api/v1/categorias', categoriaRoutes);
 
 // Rota para URLs não encontradas (404)
 app.use((req, res) => {
-  res.status(404).json({ status: "NAO_ENCONTRADO", mensagem: "Endpoint não encontrado na API." });
+  res.status(404).json({ status: "NAO_ENCONTRADO", mensagem: "Endpoint não encontrado na API.(erro 404)" });
 });
 
 // Middleware Global de Tratamento de Erros (Sempre o último middleware!)
