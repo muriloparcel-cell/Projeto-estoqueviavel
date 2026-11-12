@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const authroutes = require('./src/routes/authroutes');
+const categoriaRoutes = require('./src/routes/categoriaRoutes');
 const gerenciadorErros = require('./src/middlewares/gerenciadorErros');
 const { verificarContentTypeJson } = require('./src/middlewares/validarContentType');
 
@@ -15,6 +16,7 @@ app.use(verificarContentTypeJson);
 
 // Rotas da Aplicação
 app.use('/api/v1/produtos', authroutes);
+app.use('/api/v1/categorias', categoriaRoutes);
 
 // Rota para URLs não encontradas (404)
 app.use((req, res) => {
