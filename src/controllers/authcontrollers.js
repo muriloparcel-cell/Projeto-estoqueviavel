@@ -1,6 +1,14 @@
 const categorias = [];
 const produtos = [];
 
+function obterMenorIdDisponivel(lista) {
+  let id = 1;
+  while (lista.some(item => item.id === id)) {
+    id++;
+  }
+  return id;
+}
+
 let proximoIdCategoria = 1;
 let proximoIdProduto = 1;
 
@@ -13,7 +21,7 @@ const authcontroller = {
     try {
       const { nome } = req.body;
       const novaCategoria = {
-        id: proximoIdCategoria++,
+        id: obterMenorIdDisponivel(categorias),
         nome,
         registradoEm: new Date()
       };
@@ -122,7 +130,7 @@ const authcontroller = {
       }
 
       const novoProduto = {
-        id: proximoIdProduto++,
+        id: obterMenorIdDisponivel(produtos),
         produto,
         categoriaId: categoriaExiste.id,
         categoriaNome: categoriaExiste.nome,
