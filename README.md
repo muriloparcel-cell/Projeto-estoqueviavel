@@ -64,4 +64,4 @@ Bash
 ps aux | grep node
 
 # Encerrar o servidor pelo PID
-kill -9 <PID>
+kill -9 PID
