@@ -32,7 +32,7 @@ sleep 2
   curl -s -X PUT "$URL/produtos/2" -H "Content-Type: application/json" -d '{"produto": "Ultrabook", "categoriaId": 2}' | jq .
 sleep 2
   echo -e "\n--- 7. DELETE e Erro 404 ---"
-  curl -s -X DELETE "$URL/produtos/2" | jq .
+  curl -s -X DELETE "$URL/produtos/1" | jq .
   curl -s "$URL/produtos/1" | jq .
   curl -s -X DELETE "$URL/categorias/2" | jq .
 sleep 1
