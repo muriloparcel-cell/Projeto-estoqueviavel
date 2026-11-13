@@ -11,6 +11,20 @@ const PORT = 2020;
 app.use(cors());
 app.use(express.json());
 
+// Insere o status HTTP
+app.use((req, res, next) => {
+  const jsonOriginal = res.json.bind(res);
+
+  res.json = (corpo) => {
+    if (corpo && typeof corpo === 'object' && !Array.isArray(corpo)) {
+      corpo.statusHttp = res.statusCode;
+    }
+    return jsonOriginal(corpo);
+  };
+
+  next();
+});
+
 // Aplica a validação globalmente antes das rotas
 app.use(verificarContentTypeJson);
 
@@ -20,7 +34,7 @@ app.use('/api/v1/categorias', categoriaRoutes);
 
 // Rota para URLs não encontradas (404)
 app.use((req, res) => {
-  res.status(404).json({ status: "NAO_ENCONTRADO", mensagem: "Endpoint não encontrado na API.(erro 404)" });
+  res.status(404).json({ status: "NAO_ENCONTRADO", mensagem: "Endpoint não encontrado na API." });
 });
 
 // Middleware Global de Tratamento de Erros (Sempre o último middleware!)

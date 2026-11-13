@@ -24,7 +24,7 @@ const authcontroller = {
       };
       categorias.push(novaCategoria);
       res.status(201).json({
-        mensagem: "Categoria cadastrada com sucesso!(201)",
+        mensagem: "Categoria cadastrada com sucesso!",
         categoria: novaCategoria
       });
     } catch (erro) {
@@ -48,7 +48,7 @@ const authcontroller = {
       const id = parseInt(req.params.id);
       const categoria = categorias.find(c => c.id === id);
       if (!categoria) {
-        return res.status(404).json({ status: "NAO_ENCONTRADO", mensagem: "Categoria não encontrada.(404)" });
+        return res.status(404).json({ status: "NAO_ENCONTRADO", mensagem: "Categoria não encontrada." });
       }
       res.status(200).json(categoria);
     } catch (erro) {
@@ -62,10 +62,10 @@ const authcontroller = {
       const { nome } = req.body;
       const item = categorias.find(c => c.id === id);
       if (!item) {
-        return res.status(404).json({ status: "NAO_ENCONTRADO", mensagem: "Categoria não encontrada.(404)" });
+        return res.status(404).json({ status: "NAO_ENCONTRADO", mensagem: "Categoria não encontrada." });
       }
       if (nome !== undefined) item.nome = nome;
-      res.status(200).json({ mensagem: "Categoria atualizada com sucesso!(200)", categoria: item });
+      res.status(200).json({ mensagem: "Categoria atualizada com sucesso!", categoria: item });
     } catch (erro) {
       next(erro);
     }
@@ -77,7 +77,7 @@ const authcontroller = {
       const { nome } = req.body;
       const index = categorias.findIndex(c => c.id === id);
       if (index === -1) {
-        return res.status(404).json({ status: "NAO_ENCONTRADO", mensagem: "Categoria não encontrada.(404)" });
+        return res.status(404).json({ status: "NAO_ENCONTRADO", mensagem: "Categoria não encontrada." });
       }
       categorias[index] = {
         id,
@@ -85,7 +85,7 @@ const authcontroller = {
         registradoEm: categorias[index].registradoEm,
         atualizadoEm: new Date()
       };
-      res.status(200).json({ mensagem: "Categoria substituída com sucesso!(200)", categoria: categorias[index] });
+      res.status(200).json({ mensagem: "Categoria substituída com sucesso!", categoria: categorias[index] });
     } catch (erro) {
       next(erro);
     }
@@ -96,10 +96,10 @@ const authcontroller = {
       const id = parseInt(req.params.id);
       const index = categorias.findIndex(c => c.id === id);
       if (index === -1) {
-        return res.status(404).json({ status: "NAO_ENCONTRADO", mensagem: "Categoria não encontrada.(404)" });
+        return res.status(404).json({ status: "NAO_ENCONTRADO", mensagem: "Categoria não encontrada." });
       }
       const [removida] = categorias.splice(index, 1);
-      res.status(200).json({ mensagem: "Categoria removida com sucesso!(200)", categoria: removida });
+      res.status(200).json({ mensagem: "Categoria removida com sucesso!", categoria: removida });
     } catch (erro) {
       next(erro);
     }
@@ -122,7 +122,7 @@ const authcontroller = {
       if (!categoriaExiste) {
         return res.status(404).json({
           status: "NAO_ENCONTRADO",
-          mensagem: `Categoria com ID ${categoriaId} não encontrada.(404)`
+          mensagem: `Categoria com ID ${categoriaId} não encontrada.`
         });
       }
 
@@ -137,7 +137,7 @@ const authcontroller = {
       produtos.push(novoProduto);
 
       res.status(201).json({
-        mensagem: "Produto cadastrado com sucesso e dados validados!(201)",
+        mensagem: "Produto cadastrado com sucesso e dados validados!",
         produto: novoProduto
       });
     } catch (erro) {
@@ -179,7 +179,7 @@ const authcontroller = {
       if (!item) {
         return res.status(404).json({
           status: "NAO_ENCONTRADO",
-          mensagem: "Produto não encontrado.(404)"
+          mensagem: "Produto não encontrado."
         });
       }
 
@@ -198,7 +198,7 @@ const authcontroller = {
       if (!item) {
         return res.status(404).json({
           status: "NAO_ENCONTRADO",
-          mensagem: "Produto não encontrado.(404)"
+          mensagem: "Produto não encontrado."
         });
       }
 
@@ -207,7 +207,7 @@ const authcontroller = {
         if (!categoriaExiste) {
           return res.status(404).json({
             status: "NAO_ENCONTRADO",
-            mensagem: `Categoria com ID ${categoriaId} não encontrada.(404)`
+            mensagem: `Categoria com ID ${categoriaId} não encontrada.`
           });
         }
         item.categoriaId = categoriaExiste.id;
@@ -217,7 +217,7 @@ const authcontroller = {
       if (produto !== undefined) item.produto = produto;
 
       res.status(200).json({
-        mensagem: "Produto atualizado com sucesso!(200)",
+        mensagem: "Produto atualizado com sucesso!",
         produto: item
       });
     } catch (erro) {
@@ -234,7 +234,7 @@ const authcontroller = {
       if (index === -1) {
         return res.status(404).json({
           status: "NAO_ENCONTRADO",
-          mensagem: "Produto não encontrado.(404)"
+          mensagem: "Produto não encontrado."
         });
       }
 
@@ -242,7 +242,7 @@ const authcontroller = {
       if (!categoriaExiste) {
         return res.status(404).json({
           status: "NAO_ENCONTRADO",
-          mensagem: `Categoria com ID ${categoriaId} não encontrada.(404)`
+          mensagem: `Categoria com ID ${categoriaId} não encontrada.`
         });
       }
 
@@ -256,7 +256,7 @@ const authcontroller = {
       };
 
       res.status(200).json({
-        mensagem: "Produto substituído com sucesso!(200)",
+        mensagem: "Produto substituído com sucesso!",
         produto: produtos[index]
       });
     } catch (erro) {
@@ -272,14 +272,14 @@ const authcontroller = {
       if (index === -1) {
         return res.status(404).json({
           status: "NAO_ENCONTRADO",
-          mensagem: "Produto não encontrado.(404)"
+          mensagem: "Produto não encontrado."
         });
       }
 
       const [produtoRemovido] = produtos.splice(index, 1);
 
       res.status(200).json({
-        mensagem: "Produto removido com sucesso!(200)",
+        mensagem: "Produto removido com sucesso!",
         produto: produtoRemovido
       });
     } catch (erro) {
