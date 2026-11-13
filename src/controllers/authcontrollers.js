@@ -140,7 +140,7 @@ const authcontroller = {
       produtos.push(novoProduto);
 
       res.status(201).json({
-        mensagem: "Produto cadastrado com sucesso e dados validados!"(201),
+        mensagem: "Produto cadastrado com sucesso e dados validados!(201)",
         produto: novoProduto
       });
     } catch (erro) {
