@@ -9,9 +9,6 @@ function obterMenorIdDisponivel(lista) {
   return id;
 }
 
-let proximoIdCategoria = 1;
-let proximoIdProduto = 1;
-
 const authcontroller = {
 	// ==========================================
 	// ENTIDADE 1: CATEGORIAS
