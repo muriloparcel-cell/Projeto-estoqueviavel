@@ -1,12 +1,12 @@
-const express = require('express');
-const router = express.Router();
-const authcontroller = require('../controllers/authcontrollers');
-const { regrasCadastroProduto, regrasAtualizacaoProduto } = require('../middlewares/validarProduto');
-const validarRequisicao = require('../middlewares/validarRequisicao');
-const { verificarContentTypeJson } = require('../middlewares/validarContentType');
+const express = require('express');											// [FLUXO]
+const router = express.Router();											// [FLUXO] 
+const authcontroller = require('../controllers/authcontrollers');							// [FLUXO]
+const { regrasCadastroProduto, regrasAtualizacaoProduto } = require('../middlewares/validarProduto');			// [FLUXO]
+const validarRequisicao = require('../middlewares/validarRequisicao');							// [FLUXO]
+const { verificarContentTypeJson } = require('../middlewares/validarContentType');					// [FLUXO]
 
 
-router.get('/', authcontroller.listar);
+router.get('/', authcontroller.listar);											// [FLUXO]
 router.get('/:id', authcontroller.buscarPorId);
 router.post('/', regrasCadastroProduto, verificarContentTypeJson, validarRequisicao, authcontroller.cadastrar);
 router.patch('/:id', regrasAtualizacaoProduto, validarRequisicao, authcontroller.atualizar);
