@@ -1,7 +1,7 @@
 const categorias = [];
 const produtos = [];
 
-function obterMenorIdDisponivel(lista) {
+// [TRANSF]function obterMenorIdDisponivel(lista) {
   let id = 1;
   while (lista.some(item => item.id === id)) {
     id++;
