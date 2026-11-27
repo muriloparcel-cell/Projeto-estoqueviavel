@@ -1,4 +1,4 @@
-const verificarContentTypeJson = (req, res, next) => {
+const verificarContentTypeJson = (req, res, next) => {   					// [TRANSF] Formatação de syntax correta
   // Executa a verificação apenas para requisições POST
   if (req.method === 'POST') {
     const contentType = req.headers['content-type'];

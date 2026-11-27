@@ -1,4 +1,4 @@
-const gerenciadorErros = (err, req, res, next) => {
+const gerenciadorErros = (err, req, res, next) => {   		// [FLUXO] Carregamento da função de gerenciador de erros
   console.error(`[ERRO INTERNAL API]: ${err.message}`);
   
   res.status(500).json({

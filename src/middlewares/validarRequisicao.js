@@ -1,4 +1,4 @@
-const { validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');			// [ERRO] Filtragem de texto e caminho caso erro 
 
 const validarRequisicao = (req, res, next) => {
   const erros = validationResult(req);
